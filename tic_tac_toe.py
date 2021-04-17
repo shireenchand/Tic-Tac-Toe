@@ -110,10 +110,13 @@ def mark_x(x,y):
 running = True
 while running:
 	for event in pygame.event.get():
-		if event.type == pygame.QUIT:
-			running = False
-		if event.type == pygame.MOUSEBUTTONUP:
-			x,y = event.pos
-			mark_x(x,y)
+		try:
+			if event.type == pygame.QUIT:
+				running = False
+			if event.type == pygame.MOUSEBUTTONUP:
+				x,y = event.pos
+				mark_x(x,y)
+		except:
+			print("Game Complete")
 
 	pygame.display.update()
